@@ -1,5 +1,23 @@
 {
+  "name": "bot-discord",
+  "version": "1.0.0",
+  "description": "A simple Discord Bot",
+  "main": "index.js",
+  "engines": {
+    "node": "20.x.x",
+    "npm": "10.x.x"
+  },
   "dependencies": {
     "discord.js": "^14.14.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bot",
+    "discord"
+  ],
+  "author": "¡Duque",
+  "license": "MIT"
 }
