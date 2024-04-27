@@ -8,7 +8,8 @@
     "npm": "10.x.x"
   },
   "dependencies": {
-    "discord.js": "^14.14.1"
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
