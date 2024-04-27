@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { Client, Events, GatewayIntentBits } = require('discord.js')
+const { Client, Events, GatewayIntentBits, Collection } = require('discord.js')
 
 // dotenv
 const dotenv = require(`dotenv`)
@@ -16,14 +16,20 @@ const commandFiles = fs
   .readdirSync(commandsPath)
   .filter((file) => file.endsWith(`.js`))
 
+const client = new Client({ intents: [GatewayIntentBits.Guilds] })
+client.commands = new Collection()
+
 for (const file of commandFiles) {
   const filePath = path.join(commandsPath)
   const command = require(filePath)
   if ('data' in command && 'execute' in command) {
+    client.commands.set(command.data.name, command)
+  } else {
+    console.log(
+      `Este comando em ${filePath} está com 'data' ou 'execução' ausentes`,
+    )
   }
 }
-
-const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 
 // When the client is ready, run this code (only once).
 // The distinction between `client: Client<boolean>` and `readyClient: Client<true>` is important for TypeScript developers.
