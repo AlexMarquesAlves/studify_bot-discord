@@ -11,7 +11,7 @@ const { TOKEN, CLIENT_ID, GUILD_ID } = process.env
 const fs = require('node:fs')
 const path = require('node:path')
 
-const commandsPath = path.join(__dirname, 'src/commands')
+const commandsPath = path.join(__dirname, './src/commands')
 const commandFiles = fs
   .readdirSync(commandsPath)
   .filter((file) => file.endsWith(`.js`))
@@ -31,9 +31,6 @@ for (const file of commandFiles) {
   }
 }
 
-// When the client is ready, run this code (only once).
-// The distinction between `client: Client<boolean>` and `readyClient: Client<true>` is important for TypeScript developers.
-// It makes some properties non-nullable.
 client.once(Events.ClientReady, (readyClient) => {
   console.log(`Tudo Certo! Logado como ${readyClient.user.tag}`)
 })
