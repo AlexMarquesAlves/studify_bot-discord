@@ -55,5 +55,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
         'Documentação do Discord.js: https://discordjs.guide/#before-you-begin',
       )
     }
+    if (!interaction.isChatInputCommand()) return
+    const command = interaction.client.commands.get(interaction.commandName)
   }
 })
