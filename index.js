@@ -4,6 +4,7 @@ const { Client, Events, GatewayIntentBits } = require('discord.js')
 // dotenv
 const dotenv = require(`dotenv`)
 dotenv.config()
+
 const { TOKEN, CLIENT_ID, GUILD_ID } = process.env
 
 // importação dos comandos
@@ -11,9 +12,16 @@ const fs = require('node:fs')
 const path = require('node:path')
 
 const commandsPath = path.join(__dirname, 'src/commands')
-const commandsFiles = fs
+const commandFiles = fs
   .readdirSync(commandsPath)
-  .filter((file) => file.endsWith(`.{js,ts}`))
+  .filter((file) => file.endsWith(`.js`))
+
+for (const file of commandFiles) {
+  const filePath = path.join(commandsPath)
+  const command = require(filePath)
+  if ('data' in command && 'execute' in command) {
+  }
+}
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] })
 
