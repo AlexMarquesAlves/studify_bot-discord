@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js')
 
 const exampleEmbed = new EmbedBuilder()
@@ -71,7 +70,7 @@ const exampleEmbed = new EmbedBuilder()
       name: '$ git pull',
       value: 'Baixa o histórico e incorpora as mudanças',
       inline: true,
-    },
+    }
   )
 
 module.exports = {
