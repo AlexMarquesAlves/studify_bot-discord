@@ -13,3 +13,10 @@ const commandsPath = path.join(__dirname, 'commands')
 const commandFiles = fs
   .readdirSync(commandsPath)
   .filter((file) => file.endsWith('.js'))
+
+const commands = []
+
+for (const file of commandFiles) {
+  const command = require(`./commands/${file}`)
+  commands.push(command.data.toJSON())
+}
