@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js')
 
 // dotenv
@@ -23,8 +22,8 @@ for (const file of commandFiles) {
   if ('data' in command && 'execute' in command) {
     client.commands.set(command.data.name, command)
   } else {
-    throw new Error(
-      `Esse comando em ${filePath} está com "data" ou "execute ausentes"`,
+    console.log(
+      `Esse comando em ${filePath} está com "data" ou "execute ausentes"`
     )
   }
 }
@@ -37,37 +36,34 @@ client.login(TOKEN)
 
 // Listener de interações com o bot
 client.on(Events.InteractionCreate, async (interaction) => {
-  if (!interaction.isStringSelectMenu()) {
+  if (interaction.isStringSelectMenu()) {
     const selected = interaction.values[0]
-
-    if (selected === 'javascript') {
+    if (selected == 'javascript') {
       await interaction.reply(
-        'Documentação do Javascript: https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+        'Documentação do Javascript: https://developer.mozilla.org/en-US/docs/Web/JavaScript'
       )
-    } else if (selected === 'python') {
+    } else if (selected == 'python') {
       await interaction.reply('Documentação do Python: https://www.python.org')
-    } else if (selected === 'csharp') {
+    } else if (selected == 'csharp') {
       await interaction.reply(
-        'Documentação do C#: https://learn.microsoft.com/en-us/dotnet/csharp/',
+        'Documentação do C#: https://learn.microsoft.com/en-us/dotnet/csharp/'
       )
-    } else if (selected === 'discordjs') {
+    } else if (selected == 'discordjs') {
       await interaction.reply(
-        'Documentação do Discord.js: https://discordjs.guide/#before-you-begin',
+        'Documentação do Discord.js: https://discordjs.guide/#before-you-begin'
       )
     }
-    if (!interaction.isChatInputCommand()) return
-    const command = interaction.client.commands.get(interaction.commandName)
-
-    if (!command) {
-      console.error('Comando não encontrado')
-      return
-    }
-
-    try {
-      await command.execute(interaction)
-    } catch (error) {
-      console.error(error)
-      await interaction.reply('Houve um erro ao executar esse comando!')
-    }
+  }
+  if (!interaction.isChatInputCommand()) return
+  const command = interaction.client.commands.get(interaction.commandName)
+  if (!command) {
+    console.error('Comando não encontrado')
+    return
+  }
+  try {
+    await command.execute(interaction)
+  } catch (error) {
+    console.error(error)
+    await interaction.reply('Houve um erro ao executar esse comando!')
   }
 })

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const {
   SlashCommandBuilder,
   ActionRowBuilder,
@@ -30,8 +29,8 @@ const row = new ActionRowBuilder().addComponents(
         label: 'discord.js',
         description: 'Veja a documentação de Discord.js',
         value: 'discordjs',
-      },
-    ),
+      }
+    )
 )
 
 module.exports = {

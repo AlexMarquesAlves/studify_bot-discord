@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { REST, Routes } = require('discord.js')
 
 // dotenv
@@ -24,6 +23,7 @@ for (const file of commandFiles) {
 // instância REST
 const rest = new REST({ version: '10' }).setToken(TOKEN)
 
+// deploy
 ;(async () => {
   try {
     console.log(`Resentando ${commands.length} comandos...`)
@@ -31,7 +31,7 @@ const rest = new REST({ version: '10' }).setToken(TOKEN)
     // PUT
     const data = await rest.put(
       Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID),
-      { body: commands },
+      { body: commands }
     )
     console.log('Comandos registrados com sucesso!')
   } catch (error) {
