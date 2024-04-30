@@ -3,10 +3,10 @@ const { SlashCommandBuilder } = require('discord.js')
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('greeting')
-    .setDescription('Saudação'),
+    .setName('kale')
+    .setDescription('Ofende o KaleSins'),
 
   async execute(interaction) {
-    await interaction.reply(`olá! `)
+    await interaction.reply({ content: `KaleSin é safado`, ephemeral: false })
   },
 }

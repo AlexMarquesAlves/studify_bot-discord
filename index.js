@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { Client, Events, GatewayIntentBits, Collection } = require('discord.js')
 
 // dotenv
