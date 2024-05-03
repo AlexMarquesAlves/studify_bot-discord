@@ -21,6 +21,8 @@
   "author": "¡Duque",
   "license": "MIT",
   "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "eslint": "8",
     "nodemon": "^3.1.0",
     "prettier": "^3.2.5"
   }
