@@ -8,8 +8,9 @@
   "description": "bot de estudos de programacao para discord",
   "main": "index.js",
   "scripts": {
-    "deploy:command": "node deploy-commands.js",
     "start": "node index.js",
+    "dev": "nodemon index.js",
+    "deploy:command": "node deploy-commands.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,5 +19,9 @@
     "discord"
   ],
   "author": "¡Duque",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prettier": "^3.2.5"
+  }
 }
