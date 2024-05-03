@@ -34,6 +34,7 @@ const rest = new REST({ version: '10' }).setToken(TOKEN)
       { body: commands }
     )
     console.log('Comandos registrados com sucesso!')
+    return data
   } catch (error) {
     console.error(error)
   }

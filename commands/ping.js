@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const { SlashCommandBuilder } = require('discord.js')
 
 const wait = require('node:timers/promises').setTimeout

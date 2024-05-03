@@ -24,7 +24,7 @@ for (const file of commandFiles) {
     client.commands.set(command.data.name, command)
   } else {
     console.log(
-      `Esse comando em ${filePath} está com "data" ou "execute ausentes"`
+      `Esse comando em ${filePath} está com "data" ou "execute ausentes"`,
     )
   }
 }
@@ -39,19 +39,19 @@ client.login(TOKEN)
 client.on(Events.InteractionCreate, async (interaction) => {
   if (interaction.isStringSelectMenu()) {
     const selected = interaction.values[0]
-    if (selected === 'javascript') {
+    if (selected == 'javascript') {
       await interaction.reply(
-        'Documentação do Javascript: https://developer.mozilla.org/en-US/docs/Web/JavaScript'
+        'Documentação do Javascript: https://developer.mozilla.org/en-US/docs/Web/JavaScript',
       )
-    } else if (selected === 'python') {
+    } else if (selected == 'python') {
       await interaction.reply('Documentação do Python: https://www.python.org')
-    } else if (selected === 'csharp') {
+    } else if (selected == 'csharp') {
       await interaction.reply(
-        'Documentação do C#: https://learn.microsoft.com/en-us/dotnet/csharp/'
+        'Documentação do C#: https://learn.microsoft.com/en-us/dotnet/csharp/',
       )
-    } else if (selected === 'discordjs') {
+    } else if (selected == 'discordjs') {
       await interaction.reply(
-        'Documentação do Discord.js: https://discordjs.guide/#before-you-begin'
+        'Documentação do Discord.js: https://discordjs.guide/#before-you-begin',
       )
     }
   }
