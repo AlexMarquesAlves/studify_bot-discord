@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { SlashCommandBuilder } = require('discord.js')
 
 module.exports = {
@@ -7,7 +8,7 @@ module.exports = {
 
   async execute(interaction) {
     await interaction.reply(
-      'https://open.spotify.com/playlist/5TUxgTIxzLbLVh7RUf9V8i?si=d79ad3b1a72840b6'
+      'https://open.spotify.com/playlist/5TUxgTIxzLbLVh7RUf9V8i?si=d79ad3b1a72840b6',
     )
   },
 }
